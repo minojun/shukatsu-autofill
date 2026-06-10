@@ -78,7 +78,7 @@
 
 入力した個人情報はお使いのPC内（`chrome.storage.local`）にのみ保存され、外部サーバーへの送信・第三者への提供・クラウド同期は一切行いません。
 
-**プライバシーポリシー**: https://0x000x7f.github.io/shukatsu-autofill/privacy.html
+**プライバシーポリシー**: https://minojun.github.io/shukatsu-autofill/privacy.html
 
 ## クレジット
 
