@@ -80,6 +80,11 @@
 
 **プライバシーポリシー**: https://0x000x7f.github.io/shukatsu-autofill/privacy.html
 
+## クレジット
+
+- **原作**: [minojun](https://github.com/minojun)
+- **改善**: [0x000x7f](https://github.com/0x000x7f)（応募履歴・企業メモ帳機能、対応サイト拡充、UI改善 ほか）
+
 ## ライセンス
 
 MIT
