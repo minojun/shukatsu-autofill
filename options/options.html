@@ -87,6 +87,17 @@
       </div>
     </form>
 
+    <section id="backupSection">
+      <h2>バックアップ / 復元</h2>
+      <p class="hint">登録した<strong>個人情報</strong>と<strong>応募履歴・企業メモ</strong>をまとめて 1 つのファイルに保存できます。拡張機能を入れ直してデータが消えても、保存したファイルから復元すれば再入力は不要です。</p>
+      <div class="backup-actions">
+        <button type="button" id="exportBtn">バックアップを保存</button>
+        <button type="button" id="importBtn">ファイルから復元</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+        <span id="backupStatus" class="status"></span>
+      </div>
+    </section>
+
     <section id="appliedSection">
       <!-- 一覧（マスター） -->
       <div id="appliedMaster">

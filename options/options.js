@@ -108,6 +108,73 @@ function clearProfile() {
   });
 }
 
+// ===== バックアップ / 復元 =====
+
+function setBackupStatus(message, isError = false) {
+  const el = document.getElementById('backupStatus');
+  el.textContent = message;
+  el.classList.toggle('error', isError);
+  if (!isError) setTimeout(() => { el.textContent = ''; }, 4000);
+}
+
+function exportData() {
+  chrome.storage.local.get(['profile', 'appliedCompanies'], (data) => {
+    const backup = {
+      app: 'shukatsu-autofill',
+      type: 'backup',
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      profile: data.profile || {},
+      appliedCompanies: data.appliedCompanies || [],
+    };
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const stamp = new Date().toISOString().slice(0, 10);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `shukatsu-autofill-backup-${stamp}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setBackupStatus('✓ バックアップを保存しました');
+  });
+}
+
+function importData(file) {
+  const reader = new FileReader();
+  reader.onload = () => {
+    let parsed;
+    try {
+      parsed = JSON.parse(reader.result);
+    } catch {
+      setBackupStatus('読み込みに失敗しました（JSON形式のバックアップファイルではありません）', true);
+      return;
+    }
+    const hasProfile = parsed && typeof parsed.profile === 'object' && parsed.profile !== null;
+    const hasApplied = parsed && Array.isArray(parsed.appliedCompanies);
+    if (!hasProfile && !hasApplied) {
+      setBackupStatus('このファイルは復元できません（対応していない形式です）', true);
+      return;
+    }
+    if (!confirm('現在の個人情報・応募履歴を、ファイルの内容で上書きします。よろしいですか？')) return;
+    const toSet = {};
+    if (hasProfile) toSet.profile = parsed.profile;
+    if (hasApplied) toSet.appliedCompanies = parsed.appliedCompanies;
+    chrome.storage.local.set(toSet, () => {
+      if (chrome.runtime.lastError) {
+        setBackupStatus('復元に失敗しました: ' + chrome.runtime.lastError.message, true);
+        return;
+      }
+      loadProfile();
+      showMaster();
+      setBackupStatus('✓ 復元しました');
+    });
+  };
+  reader.onerror = () => setBackupStatus('ファイルの読み込みに失敗しました', true);
+  reader.readAsText(file);
+}
+
 // ===== 応募履歴 + 企業メモ帳 =====
 
 const STATUS_OPTIONS = [
@@ -307,6 +374,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('profileForm').addEventListener('submit', saveProfile);
   document.getElementById('clearBtn').addEventListener('click', clearProfile);
   document.getElementById('sameAsHome').addEventListener('change', toggleVacationFields);
+
+  // バックアップ / 復元
+  document.getElementById('exportBtn').addEventListener('click', exportData);
+  document.getElementById('importBtn').addEventListener('click', () => document.getElementById('importFile').click());
+  document.getElementById('importFile').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) importData(file);
+    e.target.value = '';  // 同じファイルを連続選択できるようリセット
+  });
 
   // 一覧
   document.getElementById('appliedList').addEventListener('click', onAppliedListClick);
