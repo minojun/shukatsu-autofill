@@ -22,6 +22,65 @@ button.danger:hover { background: #fff0f0; }
 .status { font-size: 13px; color: #388e3c; }
 .status.error { color: #c93b3b; }
 
+/* テーマ切り替えボタン */
+.header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.header-top h1 { flex: 1 1 auto; }
+.theme-toggle {
+  flex: 0 0 auto; background: none; border: 1px solid #ccc; border-radius: 6px;
+  font-size: 16px; line-height: 1; padding: 6px 9px; cursor: pointer; font-weight: normal;
+}
+.theme-toggle:hover { background: #f0f0f0; }
+
+/* ===== ダークモード ===== */
+[data-theme="dark"] { color-scheme: dark; }
+[data-theme="dark"] body { background: #16161a; color: #e6e6e6; }
+[data-theme="dark"] .container { background: #222227; box-shadow: 0 2px 8px rgba(0,0,0,.45); }
+[data-theme="dark"] header { border-bottom-color: #34343c; }
+[data-theme="dark"] .note { color: #9a9aa2; }
+[data-theme="dark"] fieldset { border-color: #34343c; }
+[data-theme="dark"] legend { color: #9db4ff; }
+[data-theme="dark"] label { color: #b8b8c0; }
+[data-theme="dark"] label.radio, [data-theme="dark"] label.checkbox { color: #e6e6e6; }
+[data-theme="dark"] input[type="text"], [data-theme="dark"] select, [data-theme="dark"] textarea {
+  background: #1a1a1f; border-color: #44444e; color: #e6e6e6;
+}
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #6a6a72; }
+[data-theme="dark"] .hint { color: #87878f; }
+[data-theme="dark"] .status { color: #6cbf83; }
+[data-theme="dark"] .status.error { color: #f0908a; }
+[data-theme="dark"] .theme-toggle { border-color: #44444e; }
+[data-theme="dark"] .theme-toggle:hover { background: #2e2e36; }
+[data-theme="dark"] button.danger { background: transparent; }
+[data-theme="dark"] button.danger:hover { background: #3a2326; }
+
+[data-theme="dark"] #backupSection { border-top-color: #34343c; }
+[data-theme="dark"] #backupSection h2, [data-theme="dark"] .applied-header h2 { color: #9db4ff; }
+[data-theme="dark"] #importBtn, [data-theme="dark"] #copyCsvBtn { background: #2b3550; color: #aebfe8; }
+[data-theme="dark"] #importBtn:hover, [data-theme="dark"] #copyCsvBtn:hover { background: #333f63; }
+
+[data-theme="dark"] #appliedSection { border-top-color: #34343c; }
+[data-theme="dark"] .applied-empty { color: #87878f; }
+[data-theme="dark"] .applied-row { border-bottom-color: #2f2f37; }
+[data-theme="dark"] .applied-open:hover { background: #2a2a32; }
+[data-theme="dark"] .applied-name-text { color: #e6e6e6; }
+[data-theme="dark"] .applied-meta { color: #6f6f77; }
+[data-theme="dark"] .applied-del { background: transparent; border-color: #5a3a3e; }
+[data-theme="dark"] .applied-del:hover { background: #3a2326; }
+
+[data-theme="dark"] .status-badge.st-active { background: #25324d; color: #9db8f0; }
+[data-theme="dark"] .status-badge.st-offer  { background: #1f3a29; color: #79c98e; }
+[data-theme="dark"] .status-badge.st-closed { background: #33333a; color: #9a9aa2; }
+[data-theme="dark"] .status-badge.st-none   { background: #3a3320; color: #d2ab63; }
+
+[data-theme="dark"] .detail-field { color: #b8b8c0; }
+[data-theme="dark"] .detail-meta { color: #87878f; }
+[data-theme="dark"] #detailName,
+[data-theme="dark"] #detailStatus,
+[data-theme="dark"] #detailNextDate,
+[data-theme="dark"] #detailMemo {
+  background: #1a1a1f; border-color: #44444e; color: #e6e6e6;
+}
+
 /* バックアップ / 復元 */
 #backupSection { margin-top: 28px; border-top: 1px solid #eee; padding-top: 20px; }
 #backupSection h2 { font-size: 18px; margin: 0 0 4px; color: #336; }

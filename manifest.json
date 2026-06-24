@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "就活エントリー自動入力",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "就活エントリーフォーム（i-webs.jp / axol.jp / e2r.jp / snar.jp 他）を自動入力する Chrome 拡張機能",
   "permissions": ["storage", "scripting", "activeTab"],
   "host_permissions": [
