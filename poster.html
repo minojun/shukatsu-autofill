@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>CHIBATECH PROTOTYPE — Product Poster (A4)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<!--
+  === 使い方 ===
+  1. {{ここを書く}} を自分の内容に置き換える（コーチと対話しながら1枠ずつ）
+  2. 埋める順: 03 検証実績 → 05 失敗と学び → 01 バグ（この3つが揃えば "話しかけたい学生"）
+  3. 数字は小さくても必ず入れる（「0」は避ける）
+  4. 画像は figures/ に置き <img src="figures/xxx.png"> で差し込む
+  5. 印刷: Cmd+P → 用紙: A4縦 → 余白: なし → 詳細設定 → 背景グラフィック: ON → PDF保存
+-->
+
+<div class="poster">
+
+  <!-- ============ HEADER ============ -->
+  <header class="poster__header">
+    <div class="brand">
+      <span class="brand__logo">web3/AI</span>
+      <span class="brand__event">CHIBATECH PROTOTYPE · 2026.07.16</span>
+    </div>
+    <div class="brand__meta">千葉工業大学「総合科学特論 web3・AI概論」</div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__badges">
+      <span class="tag tag--pink">A-1 プロダクト</span>
+      <span class="tag tag--outline">Chrome拡張 · 就活支援</span>
+    </div>
+    <h1 class="hero__title">就活エントリー自動入力</h1>
+    <p class="hero__tagline">
+      <span class="tagline__who">何十社も応募する就活生の</span>
+      <span class="tagline__what">毎回の個人情報の手入力を、</span>
+      <span class="tagline__how">ワンクリックで自動化する</span>
+    </p>
+    <div class="hero__visual">
+      <div style="display:flex;align-items:center;gap:5mm;">
+        <div style="width:62mm;background:#fff;border-radius:9px;box-shadow:0 6px 18px rgba(0,113,227,0.14);border:1px solid rgba(0,0,0,0.06);overflow:hidden;font-family:var(--font-sans,'Noto Sans JP');">
+          <div style="display:flex;align-items:center;gap:2mm;padding:2mm 3mm;background:linear-gradient(90deg,#0071e3,#42a5f5);color:#fff;">
+            <div style="width:5mm;height:5mm;border-radius:3px;background:#fff;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:3.6mm;height:3.6mm;"><path d="M6 3h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 13l2.2 2.2L16 10.5"/></svg></div>
+            <span style="font-size:8pt;font-weight:800;">就活エントリー自動入力</span>
+          </div>
+          <div style="padding:3mm;">
+            <div style="font-size:8pt;color:#1a8f4c;font-weight:800;margin-bottom:2mm;">✓ 対象ページを検出</div>
+            <div style="background:#0071e3;color:#fff;text-align:center;font-size:9pt;font-weight:800;padding:2mm;border-radius:7px;box-shadow:0 3px 8px rgba(0,113,227,0.3);">自動入力を実行</div>
+            <div style="display:flex;gap:2mm;margin-top:2mm;font-size:7pt;font-weight:700;">
+              <span style="background:#e6f4ea;color:#1a8f4c;padding:0.5mm 2mm;border-radius:4px;">成功 20</span>
+              <span style="background:#f0f0f2;color:#86868b;padding:0.5mm 2mm;border-radius:4px;">スキップ 0</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:9pt;font-weight:800;color:var(--text-secondary);line-height:1.5;">開いて<br>押すだけ。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 BUG / 02 SOLUTION ============ -->
+  <div class="two-col">
+    <section class="card card--bug">
+      <h2 class="section__title">
+        <span class="section__num">01</span>
+        <span class="section__name">バグ</span>
+        <span class="section__sub">実際に困ったこと</span>
+        <span class="badge badge--must">必須</span>
+      </h2>
+      <p class="quote quote--bug">
+        「ESはAIに書かせて自動化したのに、なぜ個人情報だけ毎回手で打つのか」
+      </p>
+      <ul class="bullet-list">
+        <li>何十社もエントリーする就活生。氏名・カナ・ローマ字・住所を応募のたびに入力し直している</li>
+        <li>応募先ごとにフォームの作りが違い、まとめて入力できる仕組みが無い</li>
+      </ul>
+    </section>
+
+    <section class="card card--solution">
+      <h2 class="section__title">
+        <span class="section__num">02</span>
+        <span class="section__name">解決策 (プロダクト)</span>
+        <span class="section__sub">選んだ形</span>
+        <span class="badge badge--must">必須</span>
+      </h2>
+      <p class="quote quote--solution">
+        個人情報は一度だけ登録。対応サイトのフォームを開いてボタンを押すと、氏名・住所・卒業年月まで自動で入る。応募した企業も自動でメモされる。データはPC内のみ。
+      </p>
+      <div class="how__visual">
+        <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;font-weight:700;color:var(--text-secondary);">
+          <span style="background:#fff;border:1px solid rgba(0,113,227,0.25);border-radius:6px;padding:1mm 2mm;">① 個人情報を一度だけ登録</span>
+          <span style="color:#0071e3;font-weight:900;">→</span>
+          <span style="background:#fff;border:1px solid rgba(0,113,227,0.25);border-radius:6px;padding:1mm 2mm;">② 応募フォームを開く</span>
+          <span style="color:#0071e3;font-weight:900;">→</span>
+          <span style="background:#0071e3;color:#fff;border-radius:6px;padding:1mm 2mm;">③ ボタン1つで自動入力</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ 03 TRACTION (★最重要) ============ -->
+  <section class="traction">
+    <h2 class="section__title traction__title">
+      <span class="section__num">03</span>
+      <span class="section__name">検証実績</span>
+      <span class="section__sub">試して確かめた</span>
+      <span class="badge badge--must">必須</span>
+    </h2>
+
+    <div class="traction__grid">
+      <div class="metric">
+        <span class="metric__num">約20</span>
+        <span class="metric__label">1フォームの手入力項目</span>
+      </div>
+      <div class="metric">
+        <span class="metric__num">1</span>
+        <span class="metric__label">自動入力のクリック</span>
+      </div>
+      <div class="metric">
+        <span class="metric__num">4</span>
+        <span class="metric__label">対応フォーム系統</span>
+      </div>
+      <div class="metric">
+        <span class="metric__num">1</span>
+        <span class="metric__label">使ってくれた友人</span>
+      </div>
+    </div>
+
+    <div class="traction__body">
+      <div class="ba-compare">
+        <div class="ba-side ba-side--before">
+          <span class="ba__label">Before</span>
+          <span class="ba__figure">1社あたり約20項目を手入力。何十社なら数百回の打ち直し</span>
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-side ba-side--after">
+          <span class="ba__label">After</span>
+          <span class="ba__figure">ボタン1つで自動入力。最大26項目が一度に入る</span>
+        </div>
+      </div>
+      <blockquote class="user-voice">
+        「便利だね」
+        <cite>— 実際に使ってくれた友人</cite>
+      </blockquote>
+    </div>
+
+  </section>
+
+  <!-- ============ 04 TECH / 05 LEARNED ============ -->
+  <div class="two-col">
+    <section class="card card--tech">
+      <h2 class="section__title">
+        <span class="section__num">04</span>
+        <span class="section__name">技術構成</span>
+        <span class="section__sub">サイト上で直接動かす形を選んだ</span>
+        <span class="badge badge--rec">推奨</span>
+      </h2>
+      <div class="tech__arch">
+        <div style="display:flex;align-items:center;gap:2mm;font-size:7pt;font-weight:700;color:var(--text-secondary);flex-wrap:wrap;justify-content:center;">
+          <span style="background:#fff;border:1px solid rgba(0,113,227,0.25);border-radius:6px;padding:1mm 2mm;">URLでサイト判定</span>
+          <span style="color:#0071e3;font-weight:900;">→</span>
+          <span style="background:#fff;border:1px solid rgba(0,113,227,0.25);border-radius:6px;padding:1mm 2mm;">サイト別マップ<br>i-webs / axol / e2r / snar</span>
+          <span style="color:#0071e3;font-weight:900;">→</span>
+          <span style="background:#0071e3;color:#fff;border-radius:6px;padding:1mm 2mm;">各項目に入力</span>
+        </div>
+      </div>
+      <ul class="tech__stack">
+        <li><code>Chrome拡張 (MV3)</code>応募サイト上で直接フォームに入力</li>
+        <li><code>URL判定＋サイト別マップ</code>作りの違うサイトを吸収</li>
+        <li><code>chrome.storage.local</code>個人情報はPC内のみ・外部送信なし</li>
+        <li><code>実行時にAIは使わない</code>外部に送らず、毎回同じ結果になる確実さを優先</li>
+      </ul>
+    </section>
+
+    <section class="card card--learned">
+      <h2 class="section__title">
+        <span class="section__num">05</span>
+        <span class="section__name">失敗と学び</span>
+        <span class="section__sub">失敗は学びのたね</span>
+        <span class="badge badge--must">必須</span>
+      </h2>
+      <div class="learned__block learned__block--failed">
+        <span class="learned__label learned__label--failed">✗ 通用しなかった</span>
+        <p>最初は1つの共通ロジックで、どのサイトでも同じように自動入力しようとした。作りの違うサイトでは入らなかった。</p>
+      </div>
+      <div class="learned__block learned__block--won">
+        <span class="learned__label learned__label--won">✓ 分かったこと</span>
+        <p>URL（ドメイン）で今どのサイトかを判定し、入力処理をサイトごとに分けたら、作りの違うサイトでも正しく入るようになった。</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ 06 NEXT ============ -->
+  <section class="next">
+    <h2 class="section__title next__title">
+      <span class="section__num">06</span>
+      <span class="section__name">次の一手 (方向転換案)</span>
+      <span class="section__sub">もっとよくしていく</span>
+      <span class="badge badge--rec-strong">強く推奨</span>
+    </h2>
+    <p class="next__body">
+      使ってくれる人を1人から増やし、「続けて使われるか」を確かめる。並行して、フィールドIDが動的に生成される Workday型フォームにも入る方式を試す。
+    </p>
+  </section>
+
+  <!-- ============ FOOTER (★ 顔写真 + QR 必須) ============ -->
+  <footer class="poster__footer">
+    <div class="team">
+      <div class="team__photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#0071e3,#42a5f5);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:11mm;height:11mm;"><path d="M6 3h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 13l2.2 2.2L16 10.5"/></svg></div>
+      </div>
+      <div class="team__info">
+        <div class="team__name-row">
+          <div class="team__name">みのじゅん</div>
+        </div>
+        <div class="team__affiliation">千葉工業大学 「web3・AI概論」受講生 ／ 就活エントリー自動入力 開発者</div>
+        <div class="team__contact">github.com/minojun/shukatsu-autofill</div>
+        <div class="team__pitch">
+          <span class="pitch__label">話したいこと</span>
+          個人情報の手入力をゼロにする発想を、実際の採用フローでどう活かせるか話したい
+        </div>
+      </div>
+    </div>
+    <div class="qrs">
+      <div class="qr">
+        <div class="qr__code"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" shape-rendering="crispEdges" style="width:20mm;height:20mm;display:block;"><path fill="#ffffff" d="M0 0h35v35H0z"/><path stroke="#000000" d="M1 1.5h7m2 0h1m1 0h4m1 0h5m2 0h1m2 0h7M1 2.5h1m5 0h1m6 0h3m1 0h1m2 0h1m1 0h1m3 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m1 0h2m7 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h3m3 0h1m1 0h1m2 0h4m1 0h1m1 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h2m1 0h2m2 0h1m1 0h2m2 0h1m2 0h1m1 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h1m5 0h4m2 0h1m3 0h1m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h1m1 0h3m1 0h2m2 0h1m2 0h1M1 9.5h1m1 0h5m2 0h2m1 0h4m1 0h1m5 0h1m2 0h5M2 10.5h5m1 0h1m2 0h2m4 0h1m1 0h4m1 0h1m2 0h2m1 0h4M1 11.5h2m1 0h4m1 0h2m1 0h2m2 0h2m1 0h1m1 0h2m2 0h2m2 0h1m1 0h2M1 12.5h2m2 0h2m1 0h3m1 0h1m2 0h1m5 0h3m1 0h1m3 0h3M3 13.5h5m1 0h2m2 0h1m2 0h1m2 0h2m1 0h1m1 0h3m2 0h2m1 0h1M1 14.5h1m2 0h2m2 0h1m1 0h1m3 0h5m2 0h1m1 0h2m2 0h1m3 0h3M2 15.5h1m4 0h1m1 0h2m1 0h2m1 0h1m2 0h1m1 0h1m2 0h1m1 0h3m2 0h1m1 0h1M1 16.5h2m5 0h1m1 0h2m5 0h1m2 0h3m3 0h2m2 0h2M1 17.5h2m1 0h1m1 0h4m2 0h1m1 0h1m2 0h2m1 0h1m2 0h4m1 0h3m2 0h1M1 18.5h1m1 0h1m2 0h1m1 0h1m1 0h2m1 0h3m1 0h5m2 0h1m2 0h2m1 0h4M1 19.5h2m4 0h1m1 0h1m3 0h1m2 0h3m2 0h1m1 0h1m1 0h5m1 0h2M1 20.5h1m6 0h1m2 0h2m4 0h5m4 0h7M2 21.5h6m3 0h2m1 0h1m2 0h1m2 0h4m1 0h2m2 0h2M1 22.5h1m2 0h1m6 0h1m2 0h3m1 0h2m2 0h1m1 0h1m2 0h1m2 0h2m1 0h1M1 23.5h1m1 0h1m3 0h1m1 0h2m2 0h1m1 0h5m1 0h1m4 0h1m3 0h3M1 24.5h1m1 0h3m2 0h1m2 0h3m1 0h2m2 0h1m2 0h2m1 0h4m2 0h1M1 25.5h1m1 0h3m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m4 0h7m2 0h2M9 26.5h1m1 0h2m7 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h1M1 27.5h7m4 0h2m2 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2M1 28.5h1m5 0h1m1 0h1m1 0h2m1 0h2m1 0h1m3 0h5m3 0h5M1 29.5h1m1 0h3m1 0h1m1 0h3m2 0h1m4 0h2m1 0h1m2 0h6m2 0h1M1 30.5h1m1 0h3m1 0h1m1 0h1m4 0h1m1 0h2m3 0h1m1 0h4m2 0h2m2 0h1M1 31.5h1m1 0h3m1 0h1m1 0h1m1 0h4m5 0h1m2 0h1m3 0h2m1 0h2M1 32.5h1m5 0h1m9 0h1m2 0h4m2 0h1m2 0h3M1 33.5h7m1 0h1m1 0h5m2 0h1m1 0h1m2 0h3m1 0h2m3 0h1"/></svg></div>
+        <span class="qr__label">プロダクト / GitHub</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
