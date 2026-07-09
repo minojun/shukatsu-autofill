@@ -22,6 +22,23 @@
 - poster.html / poster.css（作業ディレクトリ）
 - poster.pdf（A4縦・1ページ・そのまま印刷可）
 
+## レイアウト修正（Fable指示・2026/7/9・PDF下端欠落の是正）
+- 原因: @media print の `.poster{height:297mm;overflow:hidden}` で、正味コンテンツが
+  約424mm(1603px)ありA4(297mm)を大幅超過→06とフッターが印刷で切り落とされていた。
+  前回は /Count 1 しか見ておらず内容欠落を見逃した。
+- 対処（文言・配色・書体は不変、レイアウト/サイズのみ）:
+  - ヒーローを2カラム化（左=バッジ/タイトル/タグライン、右=ポップアップモック52mm・破線枠撤去）
+  - 03: metric__num 24→17pt、余白圧縮、Before/After行間調整、「便利だね」を垂直中央寄せ
+  - 全体: poster padding 8→6mm / gap 3→2mm / 各カード padding・fontを均等圧縮 / 固定高box(hero32mm・how20mm・arch18mm)を可変化 / footer QR・写真 22→18mm
+- 高さ実測（幅1200pxで計測=縮小非適用）:
+  - 修正前 正味 1603px(424mm) → 修正後 正味 1081px(286mm)。A4 1123px(297mm)に対し余裕42px(11.1mm)
+  - ※ .poster.scrollHeight は装飾の ::after(bottom:-160px)で+160px嵩上げされ1283pxと出るが、
+    印刷では overflow:hidden でクリップされ無関係。真の適合指標は正味1081px。
+- PDF検証（pymupdf, 前回の再発防止）:
+  - a) page_count=1 / 用紙 209.9×297.0mm = A4縦 OK
+  - b) 「みのじゅん」「次の一手」「Workday」「github.com/minojun/shukatsu-autofill」全て抽出テキストに存在
+  - c) get_pixmap(dpi=96)=794×1123px でフッターQRまで視認。QRは最終PDFからデコードしリポジトリURL一致
+
 ## 最終化（Fable指示・2026/7/9 反映済み）
 - [x] 03 After 欄: 「最大26項目が一度に入る」に変更（26=axolセレクタ実測数。旧「成功20/スキップ0」はUIモック値のため撤去）
 - [x] 06 次の一手: 【要対話】除去し確定文言に。企業名は書かず「Workday型フォーム」表記
