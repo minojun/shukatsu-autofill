@@ -5,3 +5,6 @@ Thumbs.db
 # Build
 store/dist/
 *.zip
+
+# Local tooling (coaching skill, not part of the product)
+.claude/
