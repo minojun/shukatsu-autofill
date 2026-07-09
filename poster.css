@@ -489,6 +489,7 @@ body {
   margin-right: 1mm;
   font-family: Georgia, serif;
 }
+.user-voice--plain::before { content: none; }
 .user-voice cite {
   display: block;
   margin-top: 1mm;
