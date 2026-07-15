@@ -99,6 +99,33 @@ body {
 .poster > * { position: relative; z-index: 1; flex-shrink: 0; }
 
 /* =====================================================
+   TOP BLOCK — 濃紺フルブリード（header + hero を一体化）
+   遠目の明度差で1枚だけ目立たせる狙い。下部(01〜)は白地のまま。
+   ===================================================== */
+.topblock {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;                        /* 旧 header–hero 間の gap を維持（総高不変） */
+  margin: -6mm -6mm 0;             /* poster padding 6mm を相殺して紙の上端・左右端まで断ち切り */
+  padding: 6mm 6mm 0;              /* 中身の位置は従来どおり内側に戻す（下は hero 自身の余白に任せ総高不変） */
+  background: linear-gradient(160deg, #0d1b2e 0%, #14325a 100%);
+  /* 角丸は付けない: 画面は poster の overflow:hidden+角丸が自動でクリップ、印刷は四角でフルブリード */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+/* 濃紺上の文字色（下部の白地セクションには影響させない＝.topblock 配下限定） */
+.topblock .poster__header { border-bottom-color: rgba(255,255,255,0.2); }
+.topblock .brand__logo { color: #7cc0ff; }
+.topblock .brand__event { color: rgba(255,255,255,0.85); }
+.topblock .brand__meta { color: rgba(255,255,255,0.72); }
+.topblock .hero__title { color: #ffffff; }
+.topblock .hero__tagline { color: rgba(255,255,255,0.9); }
+.topblock .tagline__who, .topblock .tagline__what { color: #ffffff; }
+.topblock .tagline__how { color: #7cc0ff; }
+.topblock .tag--pink { background: #ffffff; color: #0d1b2e; box-shadow: none; }
+.topblock .tag--outline { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+/* =====================================================
    Header
    ===================================================== */
 .poster__header {
